@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres_custom_data:
+    image: postgres:15.6
+    container_name: postgres_custom_db
+    restart: always
+    ports:
+      - "5433:5432"
+    volumes:
+      - custom_user_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: custom_info_db
+      POSTGRES_USER: custom
+      POSTGRES_PASSWORD: password
+volumes:
+  custom_user_data:
